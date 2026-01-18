@@ -1,6 +1,6 @@
-# NanoBanana PPT Skills
+# NanoBanana PPT Skills (GRSAI 版)
 
-> 基于 AI 自动生成高质量 PPT 图片和视频的强大工具，支持智能转场和交互式播放
+> 基于 GRSAI API 的 PPT 图片生成工具，国内网络直连，SSE 流式响应实时显示进度
 
 <div align="center">
 
@@ -30,13 +30,27 @@ https://github.com/user-attachments/assets/b394de21-2848-489a-8d33-a8e262e60f60
 
 ## 📖 简介
 
-NanoBanana PPT Skills 是一个强大的 AI 驱动的 PPT 生成工具，能够：
+**本版本特点：使用 GRSAI API，国内网络直连，无需科学上网！**
+
+NanoBanana PPT Skills (GRSAI 版) 是一个 AI 驱动的 PPT 生成工具，采用 **SSE (Server-Sent Events) 流式响应**，实时显示生成进度（0-100%）。
+
+### 🔧 技术实现
+
+| 特性 | 说明 |
+|------|------|
+| **API 服务** | GRSAI (https://grsai.dakka.com.cn) |
+| **认证方式** | Bearer Token |
+| **响应格式** | SSE 流式，实时进度 |
+| **图片获取** | URL 下载方式 |
+| **网络要求** | 国内网络直连 |
+
+### 🎯 核心功能
 
 - 📄 **智能分析文档**，自动提取核心要点并规划 PPT 结构
-- 🎨 **生成高质量图片**，使用 Google Nano Banana Pro（Gemini 3 Pro Image Preview）
+- 🎨 **生成高质量图片**，使用 GRSAI Nano Banana Pro API
+- 📊 **实时进度显示**，SSE 流式响应 0-100% 进度
 - 🎬 **自动生成转场视频**，使用可灵 AI 创建流畅的页面过渡动画
 - 🎮 **交互式视频播放器**，支持键盘控制、循环预览、智能转场
-- 🎥 **完整视频导出**，一键合成包含所有转场的完整 PPT 视频
 
 ### 🎨 视觉风格
 
@@ -77,7 +91,9 @@ NanoBanana PPT Skills 是一个强大的 AI 驱动的 PPT 生成工具，能够�
 
 ### 🛠️ 技术亮点
 
-- ✅ Google Nano Banana Pro（Gemini 3 Pro Image Preview）图像生成
+- ✅ **GRSAI Nano Banana Pro API** - 国内直连，无需科学上网
+- ✅ **SSE 流式响应** - 实时显示 0-100% 生成进度
+- ✅ **Bearer Token 认证** - 安全可靠的 API 认证方式
 - ✅ 可灵 AI API 集成（视频生成、数字人、主体库）
 - ✅ FFmpeg 视频合成与参数统一
 - ✅ 完整的提示词工程和风格管理系统
@@ -104,19 +120,22 @@ NanoBanana PPT Skills 是一个强大的 AI 驱动的 PPT 生成工具，能够�
    source venv/bin/activate  # Windows: venv\Scripts\activate
 
 3. 安装依赖：
-   pip install google-genai pillow python-dotenv
+   pip install requests pillow python-dotenv
 
 4. 配置 API 密钥 - 创建 .env 文件：
    cp .env.example .env
 
 5. 编辑 .env 文件，填入我的 API 密钥：
 
-   GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+   GRSAI_API_KEY=YOUR_GRSAI_API_KEY
+   GRSAI_HOST=https://grsai.dakka.com.cn
+   GRSAI_MODEL=nano-banana-pro
    KLING_ACCESS_KEY=YOUR_KLING_ACCESS_KEY
    KLING_SECRET_KEY=YOUR_KLING_SECRET_KEY
 
    注意：
-   - GEMINI_API_KEY: Google AI API 密钥（必需，用于生成 PPT 图片）
+   - GRSAI_API_KEY: GRSAI API 密钥（必需，用于生成 PPT 图片）
+   - GRSAI_HOST: GRSAI API 地址（默认 https://grsai.dakka.com.cn）
    - KLING_ACCESS_KEY 和 KLING_SECRET_KEY: 可灵 AI 密钥（可选，用于生成转场视频）
 
 6. 验证安装：
@@ -125,17 +144,17 @@ NanoBanana PPT Skills 是一个强大的 AI 驱动的 PPT 生成工具，能够�
 完成后，告诉我安装结果和如何使用。
 
 我的 API 密钥：
-- GEMINI_API_KEY: YOUR_GEMINI_API_KEY_HERE
+- GRSAI_API_KEY: YOUR_GRSAI_API_KEY_HERE
 - KLING_ACCESS_KEY: YOUR_KLING_ACCESS_KEY_HERE (可选)
 - KLING_SECRET_KEY: YOUR_KLING_SECRET_KEY_HERE (可选)
 ```
 
 **使用说明**：
 1. 先获取 API 密钥：
-   - **必需**: [Google AI API 密钥](https://aistudio.google.com/apikey)
+   - **必需**: GRSAI API 密钥（从 GRSAI 官网申请）
    - **可选**: [可灵 AI API 密钥](https://klingai.com)（用于视频转场功能）
 2. 复制上面的提示词
-3. 将 `YOUR_GEMINI_API_KEY_HERE` 等替换为你的真实 API 密钥
+3. 将 `YOUR_GRSAI_API_KEY_HERE` 等替换为你的真实 API 密钥
 4. 发送给 Claude Code
 5. Claude Code 会自动执行所有安装步骤并告知结果
 
@@ -191,8 +210,10 @@ nano .env  # 或使用你喜欢的编辑器
 在 `.env` 文件中填入你的 API 密钥：
 
 ```bash
-# Google AI API 密钥（必需）
-GEMINI_API_KEY=your_gemini_api_key_here
+# GRSAI API 密钥（必需）
+GRSAI_API_KEY=your_grsai_api_key_here
+GRSAI_HOST=https://grsai.dakka.com.cn
+GRSAI_MODEL=nano-banana-pro
 
 # 可灵 AI API 密钥（可选，用于视频转场功能）
 KLING_ACCESS_KEY=your_kling_access_key_here
@@ -203,11 +224,11 @@ KLING_SECRET_KEY=your_kling_secret_key_here
 
 ```bash
 # zsh 用户 (macOS 默认)
-echo 'export GEMINI_API_KEY="your-api-key-here"' >> ~/.zshrc
+echo 'export GRSAI_API_KEY="your-api-key-here"' >> ~/.zshrc
 source ~/.zshrc
 
 # bash 用户
-echo 'export GEMINI_API_KEY="your-api-key-here"' >> ~/.bashrc
+echo 'export GRSAI_API_KEY="your-api-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -244,13 +265,15 @@ NanoBanana PPT Skills 完全支持 Claude Code Skill 标准，可以直接通过
    cd ~/.claude/skills/ppt-generator
    python3 -m venv venv
    source venv/bin/activate
-   pip install google-genai pillow python-dotenv
+   pip install requests pillow python-dotenv
 
 4. 配置 API 密钥：
    cp .env.example .env
 
    然后编辑 .env 文件，填入我的 API 密钥：
-   GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+   GRSAI_API_KEY=YOUR_GRSAI_API_KEY
+   GRSAI_HOST=https://grsai.dakka.com.cn
+   GRSAI_MODEL=nano-banana-pro
    KLING_ACCESS_KEY=YOUR_KLING_ACCESS_KEY
    KLING_SECRET_KEY=YOUR_KLING_SECRET_KEY
 
@@ -260,7 +283,7 @@ NanoBanana PPT Skills 完全支持 Claude Code Skill 标准，可以直接通过
 完成后，告诉我如何在 Claude Code 中使用这个 Skill。
 
 我的 API 密钥：
-- GEMINI_API_KEY: YOUR_GEMINI_API_KEY_HERE
+- GRSAI_API_KEY: YOUR_GRSAI_API_KEY_HERE
 - KLING_ACCESS_KEY: YOUR_KLING_ACCESS_KEY_HERE (可选)
 - KLING_SECRET_KEY: YOUR_KLING_SECRET_KEY_HERE (可选)
 ```
@@ -293,7 +316,7 @@ git clone https://github.com/op7418/NanoBanana-PPT-Skills.git ~/.claude/skills/p
 
 # 3. 安装依赖
 cd ~/.claude/skills/ppt-generator
-pip install google-genai pillow python-dotenv
+pip install requests pillow python-dotenv
 
 # 4. 配置 API 密钥
 cp .env.example .env
@@ -314,8 +337,10 @@ Skill 会智能查找 `.env` 文件，按以下优先级：
 ```bash
 # 在 Skill 目录下创建 .env 文件
 cat > ~/.claude/skills/ppt-generator/.env << EOF
-# Google AI API 密钥（必需）
-GEMINI_API_KEY=your_gemini_api_key_here
+# GRSAI API 密钥（必需）
+GRSAI_API_KEY=your_grsai_api_key_here
+GRSAI_HOST=https://grsai.dakka.com.cn
+GRSAI_MODEL=nano-banana-pro
 
 # 可灵 AI API 密钥（可选，用于视频功能）
 KLING_ACCESS_KEY=your_kling_access_key_here
@@ -679,13 +704,13 @@ ppt-generator/
 ### Q: 如何获取 API 密钥？
 
 **A**:
-- **Google AI API**: 访问 [Google AI Studio](https://aistudio.google.com/apikey)，登录后即可创建
+- **GRSAI API**: 访问 GRSAI 官网申请密钥（国内直连，无需科学上网）
 - **可灵 AI API**: 访问 [可灵 AI 开放平台](https://klingai.com)，注册并创建应用获取密钥
 
 ### Q: 是否必须配置可灵 AI 密钥？
 
 **A**: 不是必须的。
-- **只生成 PPT 图片**：只需要 GEMINI_API_KEY
+- **只生成 PPT 图片**：只需要 GRSAI_API_KEY
 - **生成转场视频**：需要 KLING_ACCESS_KEY 和 KLING_SECRET_KEY
 
 ### Q: 视频合成失败怎么办？
@@ -743,14 +768,14 @@ cp .env.example .env
 # 编辑 .env 填入真实密钥
 
 # ❌ 错误：直接在代码中写密钥
-GEMINI_API_KEY = "AIzaSy..." # 永远不要这样做！
+GRSAI_API_KEY = "your-key..." # 永远不要这样做！
 ```
 
 ### 提交前检查
 
 ```bash
 # 验证没有密钥泄露
-grep -r "AIzaSy\|ak-" --exclude-dir=.git --exclude-dir=venv .
+grep -r "your-key\|ak-" --exclude-dir=.git --exclude-dir=venv .
 # 应该无输出
 
 # 检查 .env 文件是否被排除
