@@ -10,8 +10,6 @@
 
 **创作者**: 阿飞 | **微信公众号**: AI元机所
 
-**原项目**: [歸藏](https://github.com/op7418)
-
 [效果演示](#-效果演示) • [功能特性](#-功能特性) • [一键安装](#-一键安装) • [作为 Skill 使用](#-作为-claude-code-skill-使用) • [使用指南](#-使用指南) • [视频功能](#-视频功能) • [架构文档](ARCHITECTURE.md) • [常见问题](#-常见问题)
 
 </div>
@@ -860,8 +858,6 @@ SOFTWARE.
 
 - **创作者**: 阿飞
 - **微信公众号**: AI元机所
-- **原项目作者**: [歸藏](https://github.com/op7418)
-- **原项目 Issues**: [GitHub Issues](https://github.com/op7418/NanoBanana-PPT-Skills/issues)
 
 ---
 
