@@ -1,0 +1,45 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 环境变量和密钥
+.env
+*.key
+*.pem
+
+# 输出文件
+outputs/
+*.png
+*.jpg
+*.jpeg
+
+# 临时文件
+*.tmp
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# 测试文件
+test_*.json
+*_test.py
+slides_plan.json
+test.txt
+
+# 个人经验文档（不公开发布）
+实战经验总结.md
+实战经验指南.md
+实战经验指南_HTTP请求方式.md
+三版本对比说明.md
+
+# 大型媒体文件
+*.mp4
