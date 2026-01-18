@@ -823,7 +823,7 @@ git status
 
 MIT License
 
-Copyright (c) 2026 歸藏
+Copyright (c) 2026 阿飞
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
