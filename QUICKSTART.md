@@ -1,19 +1,25 @@
-# 快速使用指南
+# 快速使用指南 (GRSAI 版)
 
 ## 🚀 5分钟快速上手
 
 ### 步骤1: 设置API密钥
 
 ```bash
-export GEMINI_API_KEY='your-google-ai-api-key'
+# 创建 .env 文件
+cp .env.example .env
+
+# 编辑 .env 文件，填入密钥
+GRSAI_API_KEY=your-grsai-api-key
+GRSAI_HOST=https://grsai.dakka.com.cn
+GRSAI_MODEL=nano-banana-pro
 ```
 
-**获取API密钥**: 访问 [Google AI Studio](https://makersuite.google.com/app/apikey)
+**获取API密钥**: 访问 GRSAI 官网申请（国内直连，无需科学上网）
 
 ### 步骤2: 安装依赖
 
 ```bash
-pip install google-genai pillow
+pip install requests pillow python-dotenv
 ```
 
 ### 步骤3: 准备文档
@@ -183,10 +189,15 @@ echo "所有版本生成完成！"
 ### Q: 生成失败怎么办？
 
 A: 检查以下几点：
-1. API密钥是否正确设置
-2. 网络连接是否正常
-3. Python依赖是否完整安装
-4. 查看详细错误信息
+1. `.env` 文件中 GRSAI_API_KEY 是否正确设置
+2. GRSAI_HOST 是否正确（默认 https://grsai.dakka.com.cn）
+3. 网络连接是否正常（国内网络直连即可）
+4. Python依赖是否完整安装
+5. 查看详细错误信息
+
+### Q: SSE 响应解析失败？
+
+A: 确保使用的是 GRSAI 版代码，该版本专门处理 SSE 流式响应格式。
 
 ### Q: 可以生成中文内容吗？
 
