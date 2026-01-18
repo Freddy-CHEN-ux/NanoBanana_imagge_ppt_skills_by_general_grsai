@@ -8,7 +8,9 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-green.svg)
 
-**创作者**: [歸藏](https://github.com/op7418)
+**创作者**: 阿飞 | **微信公众号**: AI元机所
+
+**原项目**: [歸藏](https://github.com/op7418)
 
 [效果演示](#-效果演示) • [功能特性](#-功能特性) • [一键安装](#-一键安装) • [作为 Skill 使用](#-作为-claude-code-skill-使用) • [使用指南](#-使用指南) • [视频功能](#-视频功能) • [架构文档](ARCHITECTURE.md) • [常见问题](#-常见问题)
 
@@ -856,14 +858,10 @@ SOFTWARE.
 
 ## 📞 联系方式
 
-- **原创作者**: 歸藏
-- **GitHub**: [@op7418](https://github.com/op7418)
-- **Issues**: [GitHub Issues](https://github.com/op7418/NanoBanana-PPT-Skills/issues)
-
-### 本版本维护者
-
-- **维护者**: 阿飞
+- **创作者**: 阿飞
 - **微信公众号**: AI元机所
+- **原项目作者**: [歸藏](https://github.com/op7418)
+- **原项目 Issues**: [GitHub Issues](https://github.com/op7418/NanoBanana-PPT-Skills/issues)
 
 ---
 
@@ -871,6 +869,6 @@ SOFTWARE.
 
 **⭐ 如果这个项目对你有帮助，请给一个 Star！**
 
-Made with ❤️ by 歸藏 | Powered by Google Gemini & 可灵 AI & FFmpeg
+Made with ❤️ by 阿飞 | 微信公众号: AI元机所 | Powered by Google Gemini & 可灵 AI & FFmpeg
 
 </div>
